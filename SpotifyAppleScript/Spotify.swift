@@ -17,7 +17,7 @@ open class SpotifyAppleScript: NSObject {
         get {
             if let state = SpotifyAppleScript.executeAppleScriptWithString("get player state") {
                 //print(state)
-                if let stateEnum = PlayerState(rawValue: state) {
+                if let stateEnum = PlayerState.from(value: state) {
                     return stateEnum
                 }
             }

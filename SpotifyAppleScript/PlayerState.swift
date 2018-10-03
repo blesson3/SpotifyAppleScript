@@ -9,7 +9,18 @@
 import Foundation
 
 public enum PlayerState: String {
-    case playing = "kPSP";
-    case paused = "kPSp";
+    case playing = "playing";
+    case paused = "paused";
+    
+    static func from(value: String) -> PlayerState? {
+        switch value {
+        case "kPSP":
+            return .playing
+        case "kPSp":
+            return .paused
+        default:
+            return nil
+        }
+    }
 }
 
