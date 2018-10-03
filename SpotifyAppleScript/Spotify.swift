@@ -35,7 +35,7 @@ open class SpotifyAppleScript: NSObject {
         }
     }
     
-    static var playerPosition: Double {
+    open static var playerPosition: Double {
         get {
             if let state = SpotifyAppleScript.executeAppleScriptWithString("get player position") {
                 return Double(state) ?? 0.0
