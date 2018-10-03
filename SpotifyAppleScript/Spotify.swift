@@ -35,6 +35,19 @@ open class SpotifyAppleScript: NSObject {
         }
     }
     
+    static var playerPosition: Double {
+        get {
+            if let state = SpotifyAppleScript.executeAppleScriptWithString("get player position") {
+                return Double(state) ?? 0.0
+            }
+            return 0.0
+        }
+        
+        set {
+            SpotifyAppleScript.executeAppleScriptWithString("set player position to \(newValue)")
+        }
+    }
+    
     
     // MARK: - Methods
     open static func playNext(_ completionHandler: (()->())? = nil){
